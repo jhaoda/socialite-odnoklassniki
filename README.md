@@ -47,7 +47,7 @@ protected $listen = [
 
 Add to `config/services.php`:
 ```php
-'vkontakte' => [
+'odnoklassniki' => [
     'client_id' => env('ODNOKLASSNIKI_ID'),
     'client_secret' => env('ODNOKLASSNIKI_SECRET'),
     'redirect' => env('ODNOKLASSNIKI_REDIRECT'),  
