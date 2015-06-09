@@ -38,7 +38,7 @@ For example:
  */
 protected $listen = [
     `SocialiteProviders\Manager\SocialiteWasCalled` => [
-        'JhaoDa\SocialiteProviders\Odnoklassniki\OdnoklassnikiExtendSocialite@handle@handle'
+        'JhaoDa\SocialiteProviders\Odnoklassniki\OdnoklassnikiExtendSocialite@handle'
     ],
 ];
 ```
