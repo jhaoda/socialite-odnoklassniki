@@ -1,5 +1,5 @@
 {
-    "name": "va-fursenko/socialite-odnoklassniki",
+    "name": "jhaoda/socialite-odnoklassniki",
     "description": "Odnoklassniki OAuth2 Provider for Laravel Socialite",
     "license": "MIT",
     "authors": [{
