@@ -14,18 +14,18 @@ For example:
 'providers' => [
     // a whole bunch of providers
     // remove 'Laravel\Socialite\SocialiteServiceProvider',
-    'SocialiteProviders\Manager\ServiceProvider', // add
+    SocialiteProviders\Manager\ServiceProvider::class, // add
 ];
 ```
 * Note: If you would like to use the Socialite Facade, you need to [install it](http://laravel.com/docs/5.0/authentication#social-authentication).
 
 ### 3. Add the Event and Listeners
 
-* Add `SocialiteProviders\Manager\SocialiteWasCalled` event to your `listen[]` array in `<app_name>/Providers/EventServiceProvider`.
+* Add `SocialiteProviders\Manager\SocialiteWasCalled::class` event to your `listen[]` array in `<app_name>/Providers/EventServiceProvider`.
 
 * Add your listeners (i.e. the ones from the providers) to the `SocialiteProviders\Manager\SocialiteWasCalled[]` that you just created.
 
-* The listener that you add for this provider is `'JhaoDa\SocialiteProviders\Odnoklassniki\OdnoklassnikiExtendSocialite@handle'`.
+* The listener that you add for this provider is `'JhaoDa\SocialiteProviders\Odnoklassniki\OdnoklassnikiExtendSocialite::class'`.
 
 * Note: You do not need to add anything for the built-in socialite providers unless you override them with your own providers.
 
@@ -37,8 +37,8 @@ For example:
  * @var array
  */
 protected $listen = [
-    `SocialiteProviders\Manager\SocialiteWasCalled` => [
-        'JhaoDa\SocialiteProviders\Odnoklassniki\OdnoklassnikiExtendSocialite@handle'
+    `SocialiteProviders\Manager\SocialiteWasCalled::class` => [
+        'JhaoDa\SocialiteProviders\Odnoklassniki\OdnoklassnikiExtendSocialite::class'
     ],
 ];
 ```
