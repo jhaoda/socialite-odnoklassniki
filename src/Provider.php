@@ -2,9 +2,9 @@
 
 namespace JhaoDa\SocialiteProviders\Odnoklassniki;
 
-use SocialiteProviders\Manager\OAuth2\AbstractProvider;
-use SocialiteProviders\Manager\OAuth2\User;
 use Laravel\Socialite\Two\ProviderInterface;
+use SocialiteProviders\Manager\OAuth2\User;
+use SocialiteProviders\Manager\OAuth2\AbstractProvider;
 
 class Provider extends AbstractProvider implements ProviderInterface
 {
@@ -45,8 +45,7 @@ class Provider extends AbstractProvider implements ProviderInterface
             'format'          => 'json',
             'method'          => 'users.getCurrentUser',
             'application_key' => env('ODNOKLASSNIKI_PUBLIC'),
-            'fields'          => 'uid,name,first_name,last_name,birthday,pic190x190,has_email,email',
-            'scope'           => implode(';', $this->scopes),
+            'fields'          => 'uid,name,first_name,last_name,birthday,pic190x190,has_email,email'
         ];
 
         ksort($params);
