@@ -48,13 +48,13 @@ class Provider extends AbstractProvider implements ProviderInterface
             'fields'          => 'uid,name,first_name,last_name,birthday,pic190x190,has_email,email'
         ];
 
-        ksort($params);
+        ksort($params, SORT_STRING);
 
         $_params = array_map(function($key, $value) {
             return $key . '=' . $value;
         }, array_keys($params), array_values($params));
 
-        $params['sig'] = md5(join('', $_params) . md5($token . $this->clientSecret));
+        $params['sig'] = md5(implode('', $_params) . md5($token . $this->clientSecret));
         $params['access_token'] = $token;
 
         $response = $this->getHttpClient()->get(
