@@ -2,6 +2,7 @@
 
 namespace JhaoDa\SocialiteProviders\Odnoklassniki;
 
+use Illuminate\Support\Facades\Config;
 use Laravel\Socialite\Two\ProviderInterface;
 use SocialiteProviders\Manager\OAuth2\User;
 use SocialiteProviders\Manager\OAuth2\AbstractProvider;
@@ -44,7 +45,7 @@ class Provider extends AbstractProvider implements ProviderInterface
         $params = [
             'format'          => 'json',
             'method'          => 'users.getCurrentUser',
-            'application_key' => env('ODNOKLASSNIKI_PUBLIC'),
+            'application_key' => Config::get('services.odnoklassniki.client_public'),
             'fields'          => 'uid,name,first_name,last_name,birthday,pic190x190,has_email,email'
         ];
 
