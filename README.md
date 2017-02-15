@@ -49,6 +49,7 @@ Add to `config/services.php`:
 ```php
 'odnoklassniki' => [
     'client_id' => env('ODNOKLASSNIKI_ID'),
+    'client_public' => env('ODNOKLASSNIKI_PUBLIC'),
     'client_secret' => env('ODNOKLASSNIKI_SECRET'),
     'redirect' => env('ODNOKLASSNIKI_REDIRECT'),  
 ],
