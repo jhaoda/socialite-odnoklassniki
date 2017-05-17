@@ -44,7 +44,7 @@ class Provider extends AbstractProvider implements ProviderInterface
         $params = [
             'format'          => 'json',
             'method'          => 'users.getCurrentUser',
-            'application_key' => env('ODNOKLASSNIKI_PUBLIC'),
+            'application_key' => $this->getConfig('client_public'),
             'fields'          => 'uid,name,first_name,last_name,birthday,pic190x190,has_email,email'
         ];
 
@@ -86,5 +86,12 @@ class Provider extends AbstractProvider implements ProviderInterface
         return array_merge(parent::getTokenFields($code), [
             'grant_type' => 'authorization_code',
         ]);
+    }
+
+    public static function additionalConfigKeys()
+    {
+        return [
+            'client_public'
+        ];
     }
 }
