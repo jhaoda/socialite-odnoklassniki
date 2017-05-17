@@ -87,11 +87,7 @@ class Provider extends AbstractProvider implements ProviderInterface
             'grant_type' => 'authorization_code',
         ]);
     }
-    
-        
-    /**
-     * @return array
-     */
+
     public static function additionalConfigKeys()
     {
         return [
