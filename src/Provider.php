@@ -2,6 +2,7 @@
 
 namespace JhaoDa\SocialiteProviders\Odnoklassniki;
 
+use Illuminate\Support\Arr;
 use Laravel\Socialite\Two\ProviderInterface;
 use SocialiteProviders\Manager\OAuth2\User;
 use SocialiteProviders\Manager\OAuth2\AbstractProvider;
@@ -73,8 +74,8 @@ class Provider extends AbstractProvider implements ProviderInterface
             'id'       => $user['uid'],
             'name'     => $user['name'],
             'nickname' => null,
-            'email'    => array_get($user, 'email'),
-            'avatar'   => array_get($user, 'pic190x190'),
+            'email'    => Arr::get($user, 'email'),
+            'avatar'   => Arr::get($user, 'pic190x190'),
         ]);
     }
 
