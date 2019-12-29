@@ -51,7 +51,7 @@ class Provider extends AbstractProvider implements ProviderInterface
 
         \ksort($params, SORT_STRING);
 
-        $_params = \array_map(static function($key, $value) {
+        $_params = \array_map(static function ($key, $value) {
             return "{$key}={$value}";
         }, \array_keys($params), \array_values($params));
 
