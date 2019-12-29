@@ -46,23 +46,23 @@ class Provider extends AbstractProvider implements ProviderInterface
             'format'          => 'json',
             'method'          => 'users.getCurrentUser',
             'application_key' => $this->getConfig('client_public', env('ODNOKLASSNIKI_PUBLIC')),
-            'fields'          => 'uid,name,first_name,last_name,birthday,pic190x190,has_email,email'
+            'fields'          => 'uid,name,first_name,last_name,birthday,pic190x190,has_email,email',
         ];
 
-        ksort($params, SORT_STRING);
+        \ksort($params, SORT_STRING);
 
-        $_params = array_map(function($key, $value) {
-            return $key . '=' . $value;
-        }, array_keys($params), array_values($params));
+        $_params = \array_map(static function($key, $value) {
+            return "{$key}={$value}";
+        }, \array_keys($params), \array_values($params));
 
-        $params['sig'] = md5(implode('', $_params) . md5($token . $this->clientSecret));
+        $params['sig'] = \md5(\implode('', $_params).\md5($token.$this->clientSecret));
         $params['access_token'] = $token;
 
         $response = $this->getHttpClient()->get(
-            'https://api.ok.ru/fb.do?' . http_build_query($params)
+            'https://api.ok.ru/fb.do?'.\http_build_query($params)
         );
 
-        return json_decode($response->getBody(), true);
+        return \json_decode($response->getBody(), true);
     }
 
     /**
@@ -84,7 +84,7 @@ class Provider extends AbstractProvider implements ProviderInterface
      */
     protected function getTokenFields($code)
     {
-        return array_merge(parent::getTokenFields($code), [
+        return \array_merge(parent::getTokenFields($code), [
             'grant_type' => 'authorization_code',
         ]);
     }
@@ -92,7 +92,7 @@ class Provider extends AbstractProvider implements ProviderInterface
     public static function additionalConfigKeys()
     {
         return [
-            'client_public'
+            'client_public',
         ];
     }
 }
