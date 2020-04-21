@@ -25,7 +25,7 @@ class Provider extends AbstractProvider implements ProviderInterface
     protected function getAuthUrl($state)
     {
         return $this->buildAuthUrlFromBase(
-            'http://connect.ok.ru/oauth/authorize', $state
+            'https://connect.ok.ru/oauth/authorize', $state
         );
     }
 
